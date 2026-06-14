@@ -9,24 +9,18 @@ if (!prefersReducedMotion) {
 
   const revealTargets = [
     ...document.querySelectorAll(
-      ".intro, .capability-row span, .section-heading, .service-card, .split .panel, .process-copy, .proof-copy, .proof-list div, .cta > div, .cta form"
+      ".section-heading, .category-grid article, .product-card, .feature-intro, .feature-grid article, .industries > div, .industry-grid span, .gallery figure, .quote-copy, .quote-form"
     ),
   ];
 
   revealTargets.forEach((target, index) => {
     target.classList.add("reveal");
 
-    if (target.classList.contains("service-card")) {
-      const cardIndex = [...document.querySelectorAll(".service-card")].indexOf(target);
-      target.style.setProperty("--reveal-delay", `${Math.min(cardIndex * 70, 280)}ms`);
-    } else if (target.parentElement?.classList.contains("capability-row")) {
+    if (target.matches(".category-grid article, .feature-grid article, .industry-grid span, .gallery figure")) {
       const itemIndex = [...target.parentElement.children].indexOf(target);
-      target.style.setProperty("--reveal-delay", `${itemIndex * 70}ms`);
-    } else if (target.parentElement?.classList.contains("proof-list")) {
-      const itemIndex = [...target.parentElement.children].indexOf(target);
-      target.style.setProperty("--reveal-delay", `${itemIndex * 70}ms`);
+      target.style.setProperty("--reveal-delay", `${Math.min(itemIndex * 70, 280)}ms`);
     } else {
-      target.style.setProperty("--reveal-delay", `${Math.min(index * 25, 140)}ms`);
+      target.style.setProperty("--reveal-delay", `${Math.min(index * 24, 140)}ms`);
     }
   });
 
