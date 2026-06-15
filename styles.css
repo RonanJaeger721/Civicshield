@@ -284,10 +284,11 @@ h1 {
 
 .hero-product img {
   width: 100%;
-  aspect-ratio: 1.16;
+  aspect-ratio: 16 / 10;
   border-radius: 18px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
+  background: linear-gradient(180deg, #ffffff, #eef3f8);
 }
 
 .product-badge {
@@ -399,29 +400,31 @@ h2 {
 
 .product-card {
   display: grid;
-  grid-template-columns: 210px 1fr;
+  grid-template-columns: 1fr;
   gap: 20px;
-  padding: 14px;
+  padding: 14px 14px 24px;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .product-card.hero-card {
   grid-column: 1 / -1;
-  grid-template-columns: minmax(280px, 0.75fr) 1fr;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
   align-items: center;
 }
 
 .product-card img {
   width: 100%;
-  height: 100%;
-  min-height: 280px;
+  height: auto;
+  min-height: 0;
+  max-height: 520px;
   border-radius: 10px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
+  background: linear-gradient(180deg, #ffffff, #f2f5f9);
 }
 
 .product-card > div {
-  padding: 12px 12px 12px 0;
+  padding: 0 10px;
 }
 
 .product-type {
@@ -514,11 +517,11 @@ h2 {
 
 figure {
   position: relative;
-  min-height: 310px;
+  min-height: 360px;
   margin: 0;
   overflow: hidden;
   border-radius: 16px;
-  background: var(--grey);
+  background: linear-gradient(180deg, #ffffff, #eef3f8);
   box-shadow: 0 18px 44px rgba(7, 31, 74, 0.08);
 }
 
@@ -529,8 +532,8 @@ figure.wide {
 figure img {
   width: 100%;
   height: 100%;
-  min-height: 310px;
-  object-fit: cover;
+  min-height: 360px;
+  object-fit: contain;
   object-position: center;
   transition: transform 500ms ease;
 }
@@ -720,8 +723,14 @@ footer a {
   }
 
   .catalogue-grid,
+  .product-card.hero-card,
   .section-heading {
     grid-template-columns: 1fr;
+  }
+
+  .product-card.hero-card img,
+  .hero-product img {
+    max-height: none;
   }
 }
 
@@ -787,11 +796,16 @@ footer a {
   }
 
   .product-card img {
-    min-height: 230px;
+    max-height: none;
   }
 
   .product-card > div {
     padding: 0 8px 10px;
+  }
+
+  figure,
+  figure img {
+    min-height: 300px;
   }
 
   .gallery-grid {
