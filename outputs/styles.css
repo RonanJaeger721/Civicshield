@@ -118,14 +118,14 @@ body.motion-ready.is-loaded .hero-product {
 .brand {
   display: flex;
   align-items: center;
-  min-width: 250px;
+  min-width: 240px;
 }
 
 .brand img {
-  width: 250px;
-  height: 54px;
+  width: 240px;
+  height: 72px;
   border-radius: 8px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   background: var(--white);
   box-shadow: 0 8px 20px rgba(7, 31, 74, 0.08);
@@ -746,8 +746,8 @@ footer a {
   }
 
   .brand img {
-    width: 168px;
-    height: 40px;
+    width: 150px;
+    height: 58px;
   }
 
   nav {
